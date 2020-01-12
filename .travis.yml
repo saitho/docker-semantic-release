@@ -1,0 +1,9 @@
+language: ruby
+
+services:
+  - docker
+
+script:
+  - docker build -t saitho/docker-semantic-release .
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_USERNAME" --password-stdin
+  - docker push saitho/docker-semantic-release
