@@ -15,9 +15,14 @@ RUN npm i -g pnpm
 ENV NVM_VERSION=0.35.2
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh | bash
 
+# node-gyp requirements
+RUN apk add make gcc
+
 RUN git --version
 RUN python --version
 RUN node --version
 RUN npm --version
 RUN pnpm --version
 RUN yarn --version
+RUN make --version
+RUN gcc --version
