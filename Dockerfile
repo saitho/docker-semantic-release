@@ -1,8 +1,7 @@
-FROM alpine:3.9
+FROM alpine:latest
 
 # Install Git
-RUN apk update && apk upgrade && \
-    apk add --no-cache bash git openssh curl
+RUN apk update && apk upgrade && apk add --no-cache bash git openssh curl
 
 # Install Node and NPM
 RUN apk add --update nodejs nodejs-npm
@@ -12,7 +11,7 @@ RUN npm i --g yarn
 RUN npm i -g pnpm
 
 # Install NVM
-ENV NVM_VERSION=0.35.2
+ENV NVM_VERSION=0.35.3
 RUN curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v$NVM_VERSION/install.sh | bash
 
 # node-gyp requirements
